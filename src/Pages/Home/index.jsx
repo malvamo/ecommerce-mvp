@@ -8,9 +8,9 @@ function Home() {
     const [items, setItems] = useState(null)
 
     useEffect(() => {
-        fetch('https://api.escuelajs.co/api/v1/products')
-            .then(response => response.json())
-            .then(data => setItems(data))
+        fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>setItems(json))
     }, [])
     return (
         <Layout>
