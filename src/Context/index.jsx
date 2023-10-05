@@ -1,8 +1,8 @@
 import { useState, createContext } from 'react';
 
-export const ShopingCartContext = createContext();
+export const ShoppingCartContext = createContext();
 
-export const ShopingCartProvider =  ({ children }) => {
+export const ShoppingCartProvider =  ({ children }) => {
     // Shopping Cart | Increment quantity
     const [count, setCount] = useState(0)
 
@@ -26,7 +26,7 @@ export const ShopingCartProvider =  ({ children }) => {
     const [order, setOrder] = useState([])
 
     return (
-        <ShopingCartContext.Provider value={{
+        <ShoppingCartContext.Provider value={{
             count,
             setCount,
             openProductDetail,
@@ -43,6 +43,6 @@ export const ShopingCartProvider =  ({ children }) => {
             setOrder,
         }}>
             {children}
-        </ShopingCartContext.Provider>
+        </ShoppingCartContext.Provider>
     );
 }

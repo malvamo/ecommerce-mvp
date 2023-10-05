@@ -1,5 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
-import { ShopingCartProvider } from '../../Context';
+import { ShoppingCartProvider } from '../../Context';
 import Home from '../Home';
 import MyAccount from '../MyAccount';
 import MyOrder from '../MyOrder';
@@ -17,6 +17,7 @@ const AppRoutes = () => {
     { path: '/my-order', element: <MyOrder /> },
     { path: '/my-orders', element: <MyOrders /> },
     { path: '/my-orders/last', element: <MyOrder /> },
+    { path: '/my-orders/:id', element: <MyOrder /> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/*', element: <NotFound /> },
   ]);
@@ -26,13 +27,13 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <ShopingCartProvider>
+    <ShoppingCartProvider>
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
         <CheckoutSideMenu />
       </BrowserRouter>  
-    </ShopingCartProvider>
+    </ShoppingCartProvider>
     
   );
 }

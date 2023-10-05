@@ -1,11 +1,11 @@
 import { ShoppingBagIcon } from '@heroicons/react/24/solid';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ShopingCartContext } from '../../Context';
+import { ShoppingCartContext } from '../../Context';
 
 const Navbar = () => {
 
-    const context = useContext(ShopingCartContext)
+    const context = useContext(ShoppingCartContext)
 
     const activeStyle = 'underline underline-offset-4'
 
