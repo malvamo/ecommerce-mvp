@@ -1,6 +1,6 @@
 import { ShoppingBagIcon } from '@heroicons/react/24/solid';
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, json } from 'react-router-dom';
 import { ShoppingCartContext } from '../../Context';
 
 const Navbar = () => {
@@ -8,6 +8,12 @@ const Navbar = () => {
     const context = useContext(ShoppingCartContext)
 
     const activeStyle = 'underline underline-offset-4'
+
+    const handleSignOut = () => {
+        const stringifiedSignOut = JSON.stringify(true)
+        localStorage.setItem('sign-out', stringifiedSignOut)
+        context.setSignOut(true)
+    }
 
     return (
         <nav className='flex justify-between items-center fixed z-10 top-0 bg-white w-full py-5 px-8 text-sm font-light'>
@@ -87,8 +93,12 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/sign-in'>
-                        Sign In
+                    <NavLink 
+                        to='/sign-in'
+                        className={({ isActive }) => isActive ? activeStyle : undefined 
+                        }
+                        onClick={() => handleSignOut()}>
+                        Sign out
                     </NavLink>
                 </li>
                 <li className='flex items-center'>
