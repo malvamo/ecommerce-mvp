@@ -1,7 +1,7 @@
-import { ShoppingBagIcon } from '@heroicons/react/24/solid';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ShoppingCartContext } from '../../Context';
+import ShoppingCart from '../ShoppingCart';
 
 const Navbar = () => {
 
@@ -56,10 +56,6 @@ const Navbar = () => {
                             onClick={() => handleSignOut()}>
                             Sign out
                         </NavLink>
-                    </li>
-                    <li className='flex items-center'>
-                        <ShoppingBagIcon className='h-6 w-6 text-black' />
-                        <div>{context.cartProducts.length}</div> 
                     </li>
                 </>
             );
@@ -141,8 +137,10 @@ const Navbar = () => {
             </ul>
             <ul className='flex items-center gap-3'>
                 {renderView()}
+                <li className='flex items-center'>
+                    <ShoppingCart />
+                </li>
             </ul>
-
         </nav>
     );
 }
